@@ -1,0 +1,52 @@
+body {
+  overflow-x: hidden;
+}
+
+.nav-link {
+  position: relative; /* add this to give the link a position context */
+}
+.nav-link:hover {
+  --tw-text-opacity: 1;
+}
+.nav-active {
+  --tw-text-opacity: 1;
+}
+
+.nav-link svg {
+  position: absolute; /* position the SVG absolutely */
+  left: 0; /* position the SVG horizontally centered */
+  transform: translateX(
+    -50%
+  ); /* offset the horizontal centering to account for the SVG's own width */
+  opacity: 0; /* set the initial opacity to 0 */
+  transition: all 0.5s ease-in-out; /* add a smooth transition for the opacity */
+}
+
+.nav-link:hover svg {
+  left: 50%; /* position the SVG horizontally centered */
+  opacity: 1; /* make the SVG fully visible */
+}
+.nav-active svg {
+  left: 50%; /* position the SVG horizontally centered */
+  opacity: 1; /* make the SVG fully visible */
+}
+
+.bgImage {
+  background-image: linear-gradient(
+      to right,
+      rgba(31, 41, 55, 0.5),
+      rgba(31, 41, 55, 0.5)
+    ),
+    url('/displayBeFast.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.bgImageHero {
+  image: linear-gradient(
+    to right,
+    rgba(31, 41, 55, 0.8),
+    rgba(31, 41, 55, 0.8)
+  );
+}
