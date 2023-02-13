@@ -18,6 +18,7 @@ export default async function handler(req, res) {
         cancel_url: `${req.headers.origin}/shop/payment?canceled=true`,
         automatic_tax: { enabled: true },
       })
+      res.setHeader('Access-Control-Allow-Origin', '*')
       res.redirect(303, session.url)
     } catch (err) {
       res.status(err.statusCode || 500).json(err.message)
