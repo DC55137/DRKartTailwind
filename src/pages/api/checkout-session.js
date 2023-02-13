@@ -12,13 +12,7 @@ export default async function handler(req, res) {
         Price_ID: item.priceId,
       }))
       const session = await stripe.checkout.sessions.create({
-        line_items: [
-          {
-            // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-            price: 'price_1MatuhL7J6ZEojyOZPVxn1Pc',
-            quantity: 1,
-          },
-        ],
+        line_items: line_items,
         mode: 'payment',
         success_url: `${req.headers.origin}/shop/payment?success=true`,
         cancel_url: `${req.headers.origin}/shop/payment?canceled=true`,
