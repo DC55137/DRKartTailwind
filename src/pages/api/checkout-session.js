@@ -11,21 +11,20 @@ export default async function handler(req, res) {
         quantity: item.quantity,
         Price_ID: item.priceId,
       }))
-      console.log(line_items)
-      // const session = await stripe.checkout.sessions.create({
-      //   line_items: [
-      //     {
-      //       // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-      //       price: 'price_1MatuhL7J6ZEojyOZPVxn1Pc',
-      //       quantity: 1,
-      //     },
-      //   ],
-      //   mode: 'payment',
-      //   success_url: `${req.headers.origin}/shop/payment?success=true`,
-      //   cancel_url: `${req.headers.origin}/shop/payment?canceled=true`,
-      //   automatic_tax: { enabled: true },
-      // })
-      // res.redirect(303, session.url)
+      const session = await stripe.checkout.sessions.create({
+        line_items: [
+          {
+            // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+            price: 'price_1MatuhL7J6ZEojyOZPVxn1Pc',
+            quantity: 1,
+          },
+        ],
+        mode: 'payment',
+        success_url: `${req.headers.origin}/shop/payment?success=true`,
+        cancel_url: `${req.headers.origin}/shop/payment?canceled=true`,
+        automatic_tax: { enabled: true },
+      })
+      res.redirect(303, session.url)
     } catch (err) {
       res.status(err.statusCode || 500).json(err.message)
     }
