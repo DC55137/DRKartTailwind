@@ -9,7 +9,7 @@ export default async function handler(req, res) {
       // Create Checkout Sessions from body params.
       let line_items = cart.map((item) => ({
         quantity: item.quantity,
-        Price_ID: item.priceId,
+        price: item.priceId,
       }))
       const session = await stripe.checkout.sessions.create({
         line_items: line_items,
