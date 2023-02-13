@@ -4,7 +4,7 @@ const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY)
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { cart } = req.body
-    console.log(req.body)
+
     try {
       // Create Checkout Sessions from body params.
       let line_items = cart.map((item) => ({
