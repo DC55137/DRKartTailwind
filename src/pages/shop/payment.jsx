@@ -32,7 +32,7 @@ export default function Payment() {
         <Header />
         <Container className="pt-20">
           <PaymentDetails checkout={checkout} />
-          <CheckoutForm />
+          <CheckoutForm cart={cart} />
         </Container>
       </main>
       <Footer />

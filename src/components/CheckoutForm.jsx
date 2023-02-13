@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { loadStripe } from '@stripe/stripe-js'
+import { useSelector, useDispatch } from 'react-redux'
+import { getCart } from '@/redux/slices/product'
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
-export default function CheckoutForm() {
-  React.useEffect(() => {
+export default function CheckoutForm({ cart }) {
+  useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search)
     if (query.get('success')) {
@@ -19,40 +21,36 @@ export default function CheckoutForm() {
     }
   }, [])
 
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    try {
+      const response = await fetch('/api/checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          cart,
+        }),
+      })
+      const data = await response.json()
+      console.log(data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   return (
-    <form action="/api/checkout-sessions" method="POST">
+    <form className="relative z-20 inline-block" onSubmit={handleSubmit}>
       <section>
-        <button type="submit" role="link">
+        <button
+          className='className="inline-flex focus:ring-offset-2" items-center rounded-md border border-transparent bg-main-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-main-700 focus:outline-none focus:ring-2 focus:ring-main-500'
+          type="submit"
+          role="link"
+        >
           Checkout
         </button>
       </section>
-      <style jsx>
-        {`
-          section {
-            background: #ffffff;
-            display: flex;
-            flex-direction: column;
-            width: 400px;
-            height: 112px;
-            border-radius: 6px;
-            justify-content: space-between;
-          }
-          button {
-            height: 36px;
-            background: #556cd6;
-            border-radius: 4px;
-            color: white;
-            border: 0;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
-          }
-          button:hover {
-            opacity: 0.8;
-          }
-        `}
-      </style>
     </form>
   )
 }
