@@ -59,7 +59,7 @@ export default function Categories() {
     },
   ]
   return (
-    <div className="mt-40 h-screen">
+    <div className="mt-40 ">
       {isLoading ? (
         <div className="flex h-1/2">
           <Spinner className="my-auto w-20" />

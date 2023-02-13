@@ -39,7 +39,7 @@ export default function Shipping({ checkout }) {
   const onSubmit = async (data) => {
     console.log(data)
     dispatch(updateCheckout({ ...data }))
-    Router.push('/shop/cart')
+    Router.push('/shop/payment')
   }
   return (
     <div className="bg-white">

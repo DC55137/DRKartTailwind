@@ -9,6 +9,8 @@ import { getCart } from '@/redux/slices/product'
 import { Container } from '@/components/Container'
 
 import PaymentDetails from '@/components/PaymentDetails'
+import CheckoutForm from '@/components/CheckoutForm'
+import { loadStripe } from '@stripe/stripe-js'
 
 export default function Payment() {
   const dispatch = useDispatch()
@@ -30,6 +32,7 @@ export default function Payment() {
         <Header />
         <Container className="pt-20">
           <PaymentDetails checkout={checkout} />
+          <CheckoutForm />
         </Container>
       </main>
       <Footer />

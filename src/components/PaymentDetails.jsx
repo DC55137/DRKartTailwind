@@ -1,13 +1,47 @@
-import TextFieldEmail from './TextFieldEmail'
-import TextField from './TextField'
-import Router from 'next/router'
+import { useEffect, useState } from 'react'
 import { useDispatch } from '@/redux/store'
 // form
-import * as Yup from 'yup'
-import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
 import CartSummary from './CartSummary'
-import { updateCheckout } from '@/redux/slices/product'
+
+import { loadStripe } from '@stripe/stripe-js'
+
+const PaymentButton = ({ checkout }) => {
+  const [stripe, setStripe] = useState(null)
+
+  useEffect(() => {
+    const initializeStripe = async () => {
+      const stripe = await loadStripe(
+        process.env.NEXT_PUBLIC_STRIPE_PUBLISHING_KEY
+      )
+      setStripe(stripe)
+    }
+
+    initializeStripe()
+  }, [])
+  console.log(checkout.cart)
+
+  const handlePayment = async () => {
+    const items = checkout.cart.map((item) => ({
+      sku: item._id,
+      quantity: item.quantity,
+    }))
+    const { error } = await stripe.redirectToCheckout({
+      items,
+      successUrl: 'http://localhost:3000/success',
+      cancelUrl: 'http://localhost:3000/canceled',
+    })
+
+    if (error) {
+      console.error('Error:', error)
+    }
+  }
+
+  return (
+    <button onClick={handlePayment} disabled={!stripe}>
+      Pay
+    </button>
+  )
+}
 
 export default function Shipping({ checkout }) {
   const dispatch = useDispatch()
@@ -63,6 +97,7 @@ export default function Shipping({ checkout }) {
               <button className="rounded-md border border-transparent bg-main-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-main-700 focus:outline-none focus:ring-2 focus:ring-main-500 focus:ring-offset-2 focus:ring-offset-gray-50">
                 Pay Now
               </button>
+              <PaymentButton checkout={checkout} />
             </div>
           </div>
         </section>
