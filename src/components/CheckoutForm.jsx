@@ -21,23 +21,22 @@ export default function CheckoutForm({ cart }) {
     }
   }, [])
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
-    try {
-      const response = await fetch('/api/checkout-session', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          cart,
-        }),
-      })
-      const data = await response.json()
-      console.log(data)
-    } catch (error) {
-      console.error(error)
+
+    const formData = new FormData()
+    formData.append('cart', JSON.stringify(cart))
+
+    const xhr = new XMLHttpRequest()
+    xhr.open('POST', '/api/checkout-session', true)
+    xhr.onload = function () {
+      if (this.status === 200) {
+        console.log(JSON.parse(this.responseText))
+      } else {
+        console.error(this.statusText)
+      }
     }
+    xhr.send(formData)
   }
 
   return (
