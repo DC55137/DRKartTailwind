@@ -10,7 +10,6 @@ import { Container } from '@/components/Container'
 
 import PaymentDetails from '@/components/PaymentDetails'
 import CheckoutForm from '@/components/CheckoutForm'
-import { loadStripe } from '@stripe/stripe-js'
 
 export default function Payment() {
   const dispatch = useDispatch()

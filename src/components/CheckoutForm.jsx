@@ -24,19 +24,28 @@ export default function CheckoutForm({ cart }) {
   const handleSubmit = (event) => {
     event.preventDefault()
 
-    const formData = new FormData()
-    formData.append('cart', JSON.stringify(cart))
-
-    const xhr = new XMLHttpRequest()
-    xhr.open('POST', '/api/checkout-session', true)
-    xhr.onload = function () {
-      if (this.status === 200) {
-        console.log(JSON.parse(this.responseText))
-      } else {
-        console.error(this.statusText)
-      }
-    }
-    xhr.send(formData)
+    fetch('/api/checkout-session', {
+      method: 'POST',
+      body: JSON.stringify({
+        cart: cart,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json()
+        } else {
+          throw new Error('Network response was not ok.')
+        }
+      })
+      .then((data) => {
+        console.log(data)
+      })
+      .catch((error) => {
+        console.error('There was a problem with the fetch operation:', error)
+      })
   }
 
   return (
