@@ -23,7 +23,7 @@ export default function Checkout() {
   return (
     <>
       <Head>
-        <title>Checkout </title>
+        <title>Cart </title>
         <meta name="description" content="" />
       </Head>
       <main>

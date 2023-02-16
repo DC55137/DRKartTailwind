@@ -24,11 +24,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>CBMR - Metal Roofing | Gold Coast Brisbane </title>
-        <meta
-          name="description"
-          content="CBMR specializes in metal roofing installation, repair, and asbestos roofing services. Contact us for quality workmanship and exceptional customer service"
-        />
+        <title>DR Racing Kart Australia</title>
+        <meta name="description" content="DR RACING AUSTRALIA" />
       </Head>
       <main>
         <Header />
