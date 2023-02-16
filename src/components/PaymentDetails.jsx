@@ -3,9 +3,9 @@ import { useDispatch } from '@/redux/store'
 // form
 import CartSummary from './CartSummary'
 
-import { loadStripe } from '@stripe/stripe-js'
+import CheckoutForm from './CheckoutForm'
 
-export default function Shipping({ checkout }) {
+export default function Shipping({ checkout, cart }) {
   const dispatch = useDispatch()
 
   const { cart: products } = checkout
@@ -34,31 +34,8 @@ export default function Shipping({ checkout }) {
           </h2>
 
           <div className="mx-auto max-w-2xl px-4 lg:max-w-none lg:px-0">
-            <div>
-              <h3
-                id="contact-info-heading"
-                className="text-lg font-medium text-gray-900"
-              >
-                Contact information
-              </h3>
-              <div className="mt-6">
-                <h1>Name: </h1>
-                <p>{checkout.contactName}</p>
-              </div>
-              <div className="mt-6">
-                <h1>Address: </h1>
-                <p>{checkout.contactAddress}</p>
-              </div>
-              <div className="mt-6">
-                <h1>Email: </h1>
-                <p>{checkout.contactEmail}</p>
-              </div>
-            </div>
-
             <div className="mt-10 flex justify-between border-t border-gray-200 pt-6">
-              <button className="rounded-md border border-transparent bg-main-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-main-700 focus:outline-none focus:ring-2 focus:ring-main-500 focus:ring-offset-2 focus:ring-offset-gray-50">
-                Pay Now
-              </button>
+              <CheckoutForm cart={cart} />
             </div>
           </div>
         </section>

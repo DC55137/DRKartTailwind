@@ -22,7 +22,6 @@ export default function ViewProduct() {
   }, [dispatch, id])
 
   const { product, isLoading, checkout } = useSelector((state) => state.product)
-  console.log(checkout.cart)
 
   return (
     <>

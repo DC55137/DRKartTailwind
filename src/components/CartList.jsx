@@ -18,7 +18,8 @@ export default function CartList({ checkout }) {
   }
   const { cart: products } = checkout
 
-  const handleChangeQuantity = (num, id) => {
+  const handleChangeQuantity = (strNum, id) => {
+    const quantity = Number(strNum)
     dispatch(changeQuantity({ quantity, id }))
   }
 
@@ -79,7 +80,6 @@ export default function CartList({ checkout }) {
                           name={`quantity-${productIdx}`}
                           defaultValue={product.quantity}
                           onChange={(event) => {
-                            console.log(event.target.value)
                             handleChangeQuantity(
                               event.target.value,
                               product._id
@@ -95,6 +95,10 @@ export default function CartList({ checkout }) {
                           <option value={6}>6</option>
                           <option value={7}>7</option>
                           <option value={8}>8</option>
+                          <option value={9}>9</option>
+                          <option value={10}>10</option>
+                          <option value={11}>11</option>
+                          <option value={12}>12</option>
                         </select>
 
                         <div className="absolute top-0 right-0">

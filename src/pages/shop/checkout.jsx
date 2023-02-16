@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getCart } from '@/redux/slices/product'
 import { Container } from '@/components/Container'
 
-import Shipping from '@/components/Shipping'
+import PaymentDetails from '@/components/PaymentDetails'
 
 export default function Checkout() {
   const dispatch = useDispatch()
@@ -29,7 +29,7 @@ export default function Checkout() {
       <main>
         <Header />
         <Container className="pt-20">
-          <Shipping checkout={checkout} />
+          <PaymentDetails checkout={checkout} cart={cart} />
         </Container>
       </main>
       <Footer />

@@ -33,12 +33,8 @@ function classNames(...classes) {
 export default function ProductDisplay({ product, cart }) {
   const alreadyProduct = cart.map((item) => item._id).includes(product._id)
   const dispatch = useDispatch()
-  console.log(alreadyProduct)
-  console.log(product)
-  console.log(cart)
 
   const handleAddCart = (product) => {
-    console.log(product)
     dispatch(
       addCart({
         quantity: 1,

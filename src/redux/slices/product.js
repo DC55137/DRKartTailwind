@@ -115,7 +115,6 @@ const slice = createSlice({
 
       if (isEmptyCart) {
         state.checkout.cart = [...state.checkout.cart, product]
-        console.log('empty')
       } else {
         state.checkout.cart = state.checkout.cart.map((_product) => {
           const isExisted = _product._id === product._id
@@ -125,7 +124,7 @@ const slice = createSlice({
               quantity: _product.quantity + product.quantity,
             }
           }
-          console.log('Made it to the end of the list')
+
           return _product
         })
       }
@@ -166,7 +165,6 @@ const slice = createSlice({
 
     changeQuantity(state, action) {
       const productId = action.payload.id
-      console.log(action.payload)
       const updateCart = state.checkout.cart.map((product) => {
         if (product._id === productId) {
           return {
@@ -182,7 +180,7 @@ const slice = createSlice({
 
     removeProduct(state, action) {
       const productId = action.payload
-      console.log(productId)
+
       const updateCart = state.checkout.cart.filter(
         (product) => product._id !== productId
       )
@@ -283,13 +281,10 @@ export function getProducts() {
 
 export function getProduct(id) {
   return async (dispatch) => {
-    console.log('here in dispatch')
     dispatch(slice.actions.startLoading())
-    console.log('here in dispatch2')
     try {
       const response = await axios(`/api/getProduct?id=${id}`)
       dispatch(slice.actions.getProductSuccess(response.data.product))
-      console.log(response.data)
     } catch (error) {
       dispatch(slice.actions.hasError(error))
     }
