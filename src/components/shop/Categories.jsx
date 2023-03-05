@@ -6,6 +6,39 @@ import CategorySelect from './CategorySelect'
 import ProductCard from './ProductCard'
 import Spinner from '../Spinner'
 
+const tabs = [
+  {
+    value: 'Karts',
+    name: 'Karts',
+    icon: <Icon icon={'mdi:go-kart'} width={20} height={20} />,
+  },
+  {
+    value: 'Parts',
+    name: 'Parts',
+    icon: <Icon icon={'clarity:tools-line'} width={20} height={20} />,
+  },
+  {
+    value: 'Alfano',
+    name: 'Alfano',
+    icon: <Icon icon={'iconoir:electronics-chip'} width={20} height={20} />,
+  },
+  {
+    value: 'NEK',
+    name: 'NEK',
+    icon: <Icon icon={'mdi:seat-passenger'} width={20} height={20} />,
+  },
+  {
+    value: 'Clothing',
+    name: 'Clothing',
+    icon: <Icon icon={'map:clothing-store'} width={20} height={20} />,
+  },
+  {
+    value: '',
+    name: 'All',
+    icon: <Icon icon={'bi:check-all'} width={20} height={20} />,
+  },
+]
+
 export default function Categories() {
   const dispatch = useDispatch()
   const { products, isLoading } = useSelector((state) => state.product)
@@ -38,39 +71,6 @@ export default function Categories() {
     )
   }
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const tabs = [
-    {
-      value: 'Karts',
-      name: 'Karts',
-      icon: <Icon icon={'mdi:go-kart'} width={20} height={20} />,
-    },
-    {
-      value: 'Parts',
-      name: 'Parts',
-      icon: <Icon icon={'clarity:tools-line'} width={20} height={20} />,
-    },
-    {
-      value: 'Alfano',
-      name: 'Alfano',
-      icon: <Icon icon={'iconoir:electronics-chip'} width={20} height={20} />,
-    },
-    {
-      value: 'NEK',
-      name: 'NEK',
-      icon: <Icon icon={'mdi:seat-passenger'} width={20} height={20} />,
-    },
-    {
-      value: 'Clothing',
-      name: 'Clothing',
-      icon: <Icon icon={'map:clothing-store'} width={20} height={20} />,
-    },
-    {
-      value: '',
-      name: 'All',
-      icon: <Icon icon={'bi:check-all'} width={20} height={20} />,
-    },
-  ]
   return (
     <div className="mt-40 ">
       {isLoading ? (
