@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export function Introduction() {
   return (
     <section aria-labelledby="cause-heading">
@@ -27,12 +29,12 @@ export function Introduction() {
             secured our place at the top of the podium. Get ready to experience
             the rush of victory with DR Racing Kart!
           </p>
-          <a
+          <Link
             href="/about"
             className="mt-8 block w-full rounded-md border border-transparent bg-white py-3 px-8 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto"
           >
             Read our story
-          </a>
+          </Link>
         </div>
       </div>
     </section>
