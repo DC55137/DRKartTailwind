@@ -5,9 +5,9 @@ import { Header } from '@/components/Header'
 
 import { useRouter } from 'next/router'
 import { useSelector, useDispatch } from 'react-redux'
-import { getProduct, startLoading } from '@/redux/slices/product'
+import { getProduct } from '@/redux/slices/product'
 import { Container } from '@/components/Container'
-import ProductDisplay from '@/components/ProductDisplay'
+import ProductDisplay from '@/components/shop/ProductDisplay'
 import Spinner from '@/components/Spinner'
 
 export default function ViewProduct() {

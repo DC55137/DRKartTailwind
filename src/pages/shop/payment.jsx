@@ -8,8 +8,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getCart } from '@/redux/slices/product'
 import { Container } from '@/components/Container'
 
-import PaymentDetails from '@/components/PaymentDetails'
-import CheckoutForm from '@/components/CheckoutForm'
+import PaymentDetails from '@/components/shop/PaymentDetails'
 
 export default function Payment() {
   const dispatch = useDispatch()

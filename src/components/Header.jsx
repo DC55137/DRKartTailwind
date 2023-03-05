@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect, useRef } from 'react'
+import { Fragment, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Popover, Transition } from '@headlessui/react'
@@ -6,18 +6,9 @@ import clsx from 'clsx'
 import DRLogo from '@/images/DRLogo.svg'
 import { useSelector } from 'react-redux'
 
-import {
-  Bars3Icon,
-  MagnifyingGlassIcon,
-  ShoppingBagIcon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline'
-
 import { Container } from '@/components/Container'
-import { Logo } from '@/components/Logo'
 import { NavLink } from '@/components/NavLink'
 import useOffSetTop from '@/hooks/useOffSetTop'
-import { FiPhone } from 'react-icons/fi'
 
 function MobileNavLink({ href, children }) {
   return (
@@ -88,9 +79,12 @@ function MobileNavigation() {
             as="div"
             className="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5"
           >
-            <MobileNavLink href="#home">Home</MobileNavLink>
-            <MobileNavLink href="#roofreplacement">Shop</MobileNavLink>
-            <MobileNavLink href="#testimonials">About</MobileNavLink>
+            <MobileNavLink href="/">Home</MobileNavLink>
+            <MobileNavLink href="/support">Support</MobileNavLink>
+            <MobileNavLink href="/shop">Shop</MobileNavLink>
+            <MobileNavLink href="/driver">Drivers</MobileNavLink>
+            <MobileNavLink href="/gallery">Gallery</MobileNavLink>
+            <MobileNavLink href="/about">About</MobileNavLink>
           </Popover.Panel>
         </Transition.Child>
       </Transition.Root>
@@ -119,7 +113,7 @@ export function Header() {
       <Container>
         <nav className={clsx('z-40 flex items-center justify-between')}>
           <div className="flex items-center md:gap-x-12">
-            <Link href="#" aria-label="Home">
+            <Link href="/" aria-label="Home">
               <Image
                 src={DRLogo}
                 alt="DR Logo"
@@ -130,6 +124,10 @@ export function Header() {
             <div className="hidden md:flex md:gap-x-6">
               <NavLink href="/">Home</NavLink>
               <NavLink href="/shop">Shop</NavLink>
+              <NavLink href="/support">Support</NavLink>
+              <NavLink href="/drivers">Drivers</NavLink>
+              <NavLink href="/gallery">Gallery</NavLink>
+              <NavLink href="/about">About</NavLink>
             </div>
           </div>
           <div className="flex items-center">

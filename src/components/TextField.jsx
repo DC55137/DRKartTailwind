@@ -6,9 +6,9 @@ const TextField = ({ errors, name, header, register, autoComplete }) => {
     <div className="sm:col-span-2">
       <label
         htmlFor={name}
-        className="block text-sm font-medium capitalize text-gray-700"
+        className="block text-sm font-medium capitalize text-gray-50"
       >
-        {header}
+        {name}
       </label>
       <div className="relative mt-1 rounded-md shadow-sm">
         <input

@@ -1,30 +1,7 @@
-import { useState } from 'react'
 import { Tab } from '@headlessui/react'
-import {
-  getProduct,
-  addCart,
-  resetCart,
-  onGotoStep,
-  startLoading,
-} from '@/redux/slices/product'
+import { addCart, resetCart } from '@/redux/slices/product'
 
-import { useSelector, useDispatch } from 'react-redux'
-
-// const product = {
-//   name: 'Zip Tote Basket',
-//   price: '$140',
-
-//   images: [
-//     'https://tailwindui.com/img/ecommerce-images/product-page-03-product-01.jpg',
-//     'https://res.cloudinary.com/dddxwdp7v/image/upload/v1642555730/Dr%20Kart/products/J90%28KZ%29/DSC06357-Edit-2-scaled_oscnhj.jpg',
-//     'https://res.cloudinary.com/dddxwdp7v/image/upload/v1642555729/Dr%20Kart/products/J90%28KZ%29/DSC06353-scaled_gp3gud.jpg',
-//     'https://res.cloudinary.com/dddxwdp7v/image/upload/v1642555728/Dr%20Kart/products/J90%28KZ%29/192mm-1-scaled_mwwr9p.jpg',
-//   ],
-
-//   description: `
-//     <p>The Zip Tote Basket is the perfect midpoint between shopping tote and comfy backpack. With convertible straps, you can hand carry, should sling, or backpack this convenient and spacious bag. The zip top and durable canvas construction keeps your goods protected for all-day use.</p>
-//   `,
-// }
+import { useDispatch } from 'react-redux'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -119,13 +96,13 @@ export default function ProductDisplay({ product, cart }) {
             <div className="sm:flex-col1 mt-10 flex">
               <button
                 onClick={() => handleAddCart(product)}
-                className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-main-600 py-3 px-8 text-base font-medium text-white hover:bg-main-700 focus:outline-none focus:ring-2 focus:ring-main-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
+                className="mx-1 flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-main-600 py-3 px-8 text-base font-medium text-white hover:bg-main-700 focus:outline-none focus:ring-2 focus:ring-main-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:mx-4 sm:w-full"
               >
                 Add to Cart
               </button>
               <button
                 onClick={() => dispatch(resetCart())}
-                className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-main-600 py-3 px-8 text-base font-medium text-white hover:bg-main-700 focus:outline-none focus:ring-2 focus:ring-main-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
+                className="mx-1 flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-main-600 py-3 px-8 text-base font-medium text-white hover:bg-main-700 focus:outline-none focus:ring-2 focus:ring-main-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full md:mx-4"
               >
                 Reset Cart
               </button>

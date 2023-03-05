@@ -2,6 +2,11 @@ body {
   overflow-x: hidden;
 }
 
+main {
+  margin: 0;
+  padding: 0;
+}
+
 .nav-link {
   position: relative; /* add this to give the link a position context */
 }
@@ -49,4 +54,114 @@ body {
     rgba(31, 41, 55, 0.8),
     rgba(31, 41, 55, 0.8)
   );
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  width: 100%;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.gallery-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-thumbnails img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.gallery-thumbnail img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.modal-image {
+  max-height: calc(80vh - 2rem);
+  max-width: calc(80vw - 2rem);
+  object-fit: contain;
+  margin: auto;
+}
+
+.image-gallery-thumbnails {
+  background: none;
+}
+
+.image-gallery-content {
+  position: relative;
+}
+
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.gallery-grid-item img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+.gallery-thumbnail {
+  cursor: pointer;
+}
+
+.gallery-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80vw;
+  max-width: 800px;
+  height: 80vh;
+  max-height: 600px;
+  padding: 1rem;
+  background-color: white;
+  position: relative;
+}
+
+.gallery-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.gallery-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }

@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { useDispatch } from '@/redux/store'
 // form
 import CartSummary from './CartSummary'

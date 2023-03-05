@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Head from 'next/head'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 
 import { useRouter } from 'next/router'
 import { useSelector, useDispatch } from 'react-redux'
-import { getCart, getProduct, startLoading } from '@/redux/slices/product'
+import { getCart } from '@/redux/slices/product'
 import { Container } from '@/components/Container'
-import CartList from '@/components/CartList'
+import CartList from '@/components/shop/CartList'
 
 export default function Cart() {
   const dispatch = useDispatch()

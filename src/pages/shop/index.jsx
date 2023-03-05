@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
-import Categories from '@/components/Categories'
+import Categories from '@/components/shop/Categories'
 import { Container } from '@/components/Container'
 
 export default function shop() {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Head from 'next/head'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getCart } from '@/redux/slices/product'
 import { Container } from '@/components/Container'
 
-import PaymentDetails from '@/components/PaymentDetails'
+import PaymentDetails from '@/components/shop/PaymentDetails'
 
 export default function Checkout() {
   const dispatch = useDispatch()

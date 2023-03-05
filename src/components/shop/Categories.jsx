@@ -4,7 +4,7 @@ import { getProducts } from '@/redux/slices/product'
 import { Icon } from '@iconify/react'
 import CategorySelect from './CategorySelect'
 import ProductCard from './ProductCard'
-import Spinner from './Spinner'
+import Spinner from '../Spinner'
 
 export default function Categories() {
   const dispatch = useDispatch()
@@ -14,6 +14,18 @@ export default function Categories() {
   useEffect(() => {
     if (products.length === 0) {
       dispatch(getProducts())
+    }
+
+    // Check URL params for "category" and set "currentTab" state accordingly
+    const urlParams = new URLSearchParams(window.location.search)
+    const categoryParam = urlParams.get('category')
+    if (
+      categoryParam &&
+      tabs.some(
+        (tab) => tab.value.toLowerCase() === categoryParam.toLowerCase()
+      )
+    ) {
+      setCurrentTab(categoryParam)
     }
   }, [dispatch, products])
 

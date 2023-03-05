@@ -2,14 +2,16 @@ import { useEffect } from 'react'
 import Head from 'next/head'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
-import { Hero } from '@/components/Hero'
-import { Introduction } from '@/components/Introduction'
-import { RoofReplacement } from '@/components/RoofReplacement'
-import Contact from '@/components/Contact'
-import RaceCalendar from '@/components/RaceCalendar'
+import { Hero } from '@/components/home/Hero'
+import { Introduction } from '@/components/home/Introduction'
+import ShopCategory from '@/components/home/ShopCategory'
+
+import RaceCalendar from '@/components/home/RaceCalendar'
 import { useDispatch } from '@/redux/store'
 import { useRouter } from 'next/router'
 import { resetCart } from '@/redux/slices/product'
+import Video from '@/components/home/Video2'
+import Contact from '@/components/Contact'
 
 export default function Home() {
   const dispatch = useDispatch()
@@ -30,8 +32,10 @@ export default function Home() {
       <main>
         <Header />
         <Hero />
-        <RaceCalendar />
+        <Video />
         <Introduction />
+        <ShopCategory />
+        <RaceCalendar />
       </main>
       <Footer />
     </>
