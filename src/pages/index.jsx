@@ -10,8 +10,7 @@ import RaceCalendar from '@/components/home/RaceCalendar'
 import { useDispatch } from '@/redux/store'
 import { useRouter } from 'next/router'
 import { resetCart } from '@/redux/slices/product'
-import Video from '@/components/home/Video2'
-import Contact from '@/components/Contact'
+import Video from '@/components/home/Video'
 
 export default function Home() {
   const dispatch = useDispatch()
