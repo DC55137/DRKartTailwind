@@ -2,7 +2,6 @@ import Head from 'next/head'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 
-import Albums from '@/components/gallery/albums'
 import Gallery from '@/components/gallery'
 
 export default function Support() {

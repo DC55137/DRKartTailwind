@@ -44,8 +44,9 @@ export default function About() {
                 </strong>{' '}
                 DR Racing Kart has a team of experienced and skilled drivers,
                 mechanics, and support staff who have been in the industry for
-                years. Our team's experience has allowed us to fine-tune our
-                skills and techniques, making us a dominant force on the track.
+                years. Our team&apos;s experience has allowed us to fine-tune
+                our skills and techniques, making us a dominant force on the
+                track.
               </span>
             </li>
             <li className="flex gap-x-3">

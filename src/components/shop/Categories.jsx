@@ -27,7 +27,7 @@ export default function Categories() {
     ) {
       setCurrentTab(categoryParam)
     }
-  }, [dispatch, products])
+  }, [dispatch, products, tabs])
 
   let filteredProducts
   if (currentTab === 'All') {
@@ -38,6 +38,7 @@ export default function Categories() {
     )
   }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const tabs = [
     {
       value: 'Karts',

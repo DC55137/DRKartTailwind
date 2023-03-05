@@ -18,14 +18,14 @@ export function Introduction() {
           </h2>
           <p className="mt-3 text-xl text-white">
             Our team of racing experts is here to help you unleash your inner
-            champion. Whether you're a beginner or an experienced driver, we
-            have the knowledge and experience to help you reach your full
+            champion. Whether you&apos;re a beginner or an experienced driver,
+            we have the knowledge and experience to help you reach your full
             potential on the track. With our expert guidance and support, you
             can take your skills to the next level and dominate the Australian
-            racing circuit. We're committed to making DR Racing Kart the top
-            team in the country, and we won't stop until we've secured our place
-            at the top of the podium. Get ready to experience the rush of
-            victory with DR Racing Kart!
+            racing circuit. We&apos;re committed to making DR Racing Kart the
+            top team in the country, and we won&apos;t stop until we&apos;ve
+            secured our place at the top of the podium. Get ready to experience
+            the rush of victory with DR Racing Kart!
           </p>
           <a
             href="/about"
